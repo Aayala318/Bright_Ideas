@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Ideas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <!-- <h1> Hello, {{ user.first_name }}!</h1>
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="logout">
+        <a href="/logout">Log Out</a>
+
+
+        <form action="/create" method="POST">
+            {%csrf_token%}
+            <h1>Post something witty here...</h1>
+            <textarea name="description" id="description" class="form-control"></textarea>
+            <input type="submit" value="Idea!">
+        </form>
+    </div>
+    <table class="tabel table-dark">
+        <thead>
+            <tr>
+                <th>Creater</th>
+                <th>Discription</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for idea in ideas%}
+            <tr>
+                <td><a href="/user/{{idea.owner.id}}">{{ idea.owner.first_name}}</a></td>
+                <td>{{ idea.description }}</td>
+                <td><a href="/delete/{{idea.id}}">delete</a></td>
+                <td><a href="/like/{{idea.id}}">like</a></td>
+                <td>{{idea.like.count}}</td>
+                <td><a href="/display_one/{{idea.id}}">people liked this</a></td>
+            </tr>
+
+
+            {%endfor%}
+        </tbody>
+    </table> -->
+
+    <div style="margin-top: 15px;" class="container">
+        <div class="logout">
+            <a style="float: right;" href="/logout">Log Out</a>
+        </div>
+        <h1 class="display-4"> Hello, {{ user.first_name }}!</h1>
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <div class="post">
+            <h1>Post something witty here...</h1>
+            <form action="/create" method="POST">
+                {%csrf_token%}
+                <textarea name="description" id="description" class="form-control"></textarea>
+                <input style="margin-top: 20px; margin-bottom: 20px;" type="submit" value="Post Idea!">
+            </form>
+        </div>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Creator</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for idea in ideas%}
+                    {%if user == idea.owner%}
+                        <tr>
+                            <td><a href="/user/{{idea.owner.id}}">{{ idea.owner.first_name}}</a></td>
+                            <td>{{ idea.description }}</td>
+                            <td><a href="/delete/{{idea.id}}">delete</a></td>
+                            <td><a href="/like/{{idea.id}}">like</a></td>
+                            <td>{{idea.like.count}}</td>
+                            <td><a href="/display_one/{{idea.id}}">people liked this</a></td>
+                        </tr>
+                    {%elif user != idea.owner%}
+                        <tr>
+                            <td><a href="/user/{{idea.owner.id}}">{{ idea.owner.first_name}}</a></td>
+                            <td>{{ idea.description }}</td>
+                            <td></td>
+                            <td><a href="/like/{{idea.id}}">like</a></td>
+                            <td>{{idea.like.count}}</td>
+                            <td><a href="/display_one/{{idea.id}}">people liked this</a></td>
+                        </tr>
+                    {%endif%} 
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

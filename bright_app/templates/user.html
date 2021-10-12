@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Ideas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+
+<!-- <div class="user">
+
+    <body>
+
+        <h1>User:</h1>
+        <p>{{user.first_name}}</p>
+        <p>{{user.last_name}}</p>
+        <p>{{user.email}}</p>
+        <h3>Number of Ideas:</h3>
+        <p>{{ideas.count}}</p>
+        <h3>Number of Likes:</h3>
+        <p>{{user.liked_ideas.count}}</p>
+
+
+
+        <a href="/display_all">Dashboard</a>
+        <a href="/logout">Log Out</a>
+
+    </body>
+</div> -->
+
+<body>
+    <div style="margin-top: 15px;" class="container">
+        <div style="float: right;" class="logout">
+            <p><a href="/display_all">Dashboard</a> | <a href="/logout">Log Out</a></p>
+        </div>
+        <div style="text-align: center;" class="user">
+            <div>
+                <h1 style="padding-left: 160px;" class="display-2">User:</h1>
+                <h4 class="display-4">Name: {{user.first_name}} {{user.last_name}}</h4>
+                <h4 class="display-4">Alias: {{user.alias}}</h4>
+                <h4 class="display-4">Email: {{user.email}}</h4>
+            </div>
+            <h1 style="margin-top: 10px;">Number of Ideas:</h1>
+            <h2>{{ideas.count}}</h2>
+            <h1 style="margin-top: 10px;">Number of Likes:</h1>
+            <h2>{{user.liked_ideas.count}}</h2>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register/Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Bright_Ideas/style.css' %}">
+</head>
+
+<body>
+    <!-- <h1>Bright Ideas</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div id="log-reg">
+        <section>
+            <h2>Register</h2>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <h3>
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control">
+                    </div>
+                </h3>
+                <h3>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control">
+                </h3>
+    </div>
+    <h3>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control">
+    </h3>
+    </div>
+    <h3>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control">
+    </h3>
+    </div>
+    <h3>
+        <div class="form-group">
+            <label for="confirm">Confirm Password</label>
+            <input type="password" name="confirm" id="confirm" class="form-control">
+    </h3>
+    </div>
+    <button class="btn btn-primary">Register</button>
+    </form>
+    </section>
+    <section>
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <h3>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+            </h3>
+            </div>
+            <h3>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
+            </h3>
+            </div>
+
+            <button class="btn btn-primary">Login</button>
+        </form>
+    </section>
+    </div> -->
+
+    <h1 class="display-3" style="text-align: center; margin-top: 15px;">Welcome to Bright Ideas!</h1>
+    <div style="margin-left: 900px;">
+        <img src="https://freepngimg.com/thumb/bulb/37212-6-light-bulb-free-download.png" style="max-width: 200px; max-height: 100px;" alt="Ooops image did not load.">
+    </div>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: red; margin-left: 800px;">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div id="log-reg" style="display: flex;">
+        <div id="reg" style="width: 500px; margin-left: 280px; margin-top: 30px;">
+            <section>
+                <h2 class="display-4" style="margin-bottom: 30px;">Register</h2>
+                <form style="padding-bottom: 20px;" action="/register" method="post">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="first_name"><h4>First Name</h4></label>
+                        <input type="text" name="first_name" id="first_name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name"><h4>Last Name</h4></label>
+                        <input type="text" name="last_name" id="last_name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="alias"><h4>Alias</h4></label>
+                        <input type="text" name="alias" id="alias" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><h4>Email</h4></label>
+                        <input type="email" name="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><h4>Password</h4></label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm"><h4>Confirm Password</h4></label>
+                        <input type="password" name="confirm" id="confirm" class="form-control">
+                    </div>
+                    <button class="btn btn-primary">Register</button>
+                </form>
+            </section>
+        </div>
+        <div id="log" style="width: 500px; margin-left: 370px; margin-top: 30px;">
+            <section>
+                <h2 class="display-4" style="margin-bottom: 30px;">Login</h2>
+                <form action="/login" method="post">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="email"><h4>Email</h4></label>
+                        <input type="email" name="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><h4>Password</h4></label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <button class="btn btn-primary">Login</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

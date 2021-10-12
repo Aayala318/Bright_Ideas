@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Ideas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <!-- <div class="idea">
+        <h1>Idea:</h1>
+        <p>{{one_idea.first_name}}</p>
+        <p>{{one_idea.description}}<p>
+
+        <h2>Created By: {{one_idea.owner.first_name}}</h2>
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <h3>People who liked this post:</h3>
+        <table class="tabel table-dark">
+            <thead>
+                <tr>
+                    <th>Alies</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for person in one_idea.like.all%}
+                <tr>
+                    <td><a href="/user/{{person.id}}">{{ person.first_name}}</a></td>
+                    <td>{{person.first_name}} {{person.last_name}}</td>
+
+                </tr>
+
+
+                {%endfor%}
+            </tbody>
+    </div>
+    </table>
+
+
+    <a href="/display_all">Dashboard</a>
+    <a href="/logout">Log Out</a> -->
+
+    <div style="margin: 20px;" class="idea">
+        <div style="float: right;" class="logout">
+            <p><a href="/display_all">Dashboard</a> | <a href="/logout">Log Out</a></p>
+        </div>
+        <h1 class="display-3">Idea:</h1>
+        <h4>Created at: {{one_idea.created_at}}</h4>
+        <h4>Description: {{one_idea.description}}</h4>
+        <h2 style="margin-top: 50px;" class="display-4">Created By: {{one_idea.owner.first_name}}</h2>
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <h3>People who liked this post:</h3>
+        <div class="table">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        <th>Alias</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for person in one_idea.like.all%}
+                    <tr>
+                        <td><a href="/user/{{person.id}}">{{person.alias}}</a></td>
+                        <td>{{ person.first_name}} {{person.last_name}}<td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
